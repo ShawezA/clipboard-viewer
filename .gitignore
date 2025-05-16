@@ -1,0 +1,39 @@
+# Nix build result symlinks and store paths
+result
+result-*
+
+# Nix Flakes lock file (if you start using Flakes)
+flake.lock
+
+# Python specific
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+*.venv/
+venv/
+ENV/
+env/
+.env
+*.so
+.Python
+
+# Editor and OS specific files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+*.bak
+*.tmp
+
+# IDE specific
+.vscode/
+.idea/
+*.iml
+
+# Example config file (if you don't want to commit your personal one,
+# but you probably want to commit settings.ini.example)
+# settings.ini
