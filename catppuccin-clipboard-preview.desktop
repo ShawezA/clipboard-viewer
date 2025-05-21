@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Catppuccin Clipboard Preview
+Comment=A GTK clipboard history previewer with Catppuccin theme, using cliphist.
+Exec=show-clipboard-preview
+Icon=catppuccin-clipboard-preview
+Terminal=false
+Type=Application
+Categories=Utility;GTK;

@@ -17,6 +17,7 @@ pkgs.python3Packages.buildPythonApplication rec {
     pkgs.gobject-introspection
     pkgs.pkg-config
     pkgs.coreutils # For a known-good `install` in postFixup
+    pkgs.desktop-file-utils
   ];
 
   buildInputs = [
@@ -27,6 +28,7 @@ pkgs.python3Packages.buildPythonApplication rec {
     pkgs.wl-clipboard
     pkgs.socat
     pkgs.nerdfonts
+    pkgs.hicolor-icon-theme
   ];
 
   doCheck = false;
@@ -40,6 +42,12 @@ pkgs.python3Packages.buildPythonApplication rec {
     # Manually install the show-clipboard-preview.sh script to $out/bin
     # This version will likely get wrapped and renamed.
     install -Dm755 ${src}/show-clipboard-preview.sh $out/bin/show-clipboard-preview
+
+    mkdir -p $out/share/applications
+    cp ${src}/catppuccin-clipboard-preview.desktop $out/share/applications/
+
+    mkdir -p $out/share/icons/hicolor/scalable/apps
+    cp ${src}/image.png $out/share/icons/hicolor/scalable/apps/catppuccin-clipboard-preview.png
 
     runHook postInstall
   '';
@@ -60,9 +68,9 @@ pkgs.python3Packages.buildPythonApplication rec {
 
   meta = with pkgs.lib; {
     description = "A GTK clipboard history previewer with Catppuccin theme, using cliphist.";
-    homepage = "";
+  homepage = "https://github.com/your-username/catppuccin-clipboard-preview";
     license = licenses.mit;
-    maintainers = with maintainers; [ ];
+  maintainers = with maintainers; [ pkgs.lib.maintainers.exampleUser ];
     mainProgram = "show-clipboard-preview";
     platforms = platforms.linux;
   };
